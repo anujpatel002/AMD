@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'LoginPage.dart';   // ✅ fixed
+import 'LoginPage.dart';
 import 'welcome.dart';
 
 void main() {
-  runApp(const Root());
+  // Root widget variable
+  const Root root = Root();
+  runApp(root);
 }
 
 class Root extends StatelessWidget {
@@ -11,13 +13,14 @@ class Root extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    // MaterialApp variable
     MaterialApp app = MaterialApp(
-      home: LoginPage(),
+      initialRoute: '/',
       routes: {
-        '/': (context) => LoginPage(),
-        '/welcome': (context) => WelcomePage(),
+        '/': (context) => const LoginPage(),
+        '/welcome': (context) => const WelcomePage(),
       },
+      debugShowCheckedModeBanner: false,
     );
 
     return app;
